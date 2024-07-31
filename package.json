@@ -1,0 +1,19 @@
+{
+  "name": "msgroom-bot",
+  "version": "1.0.0",
+  "description": "A simple bot using msgroom library",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bot.mjs"
+  },
+  "keywords": [
+    "msgroom",
+    "bot",
+    "chat"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "msgroom": "nightly"
+  }
+}
