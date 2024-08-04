@@ -1,4 +1,7 @@
 import Client from "msgroom";
+import express from "express";
+const app = express();
+const port = 3000;
 const client = new Client("hecker [hbot!]", "hbot!", {
     server: "wss://msgroom.goodbx.xyz" 
 });
@@ -15,3 +18,13 @@ client.commands.repeat = {
     },
 };
 await client.connect();
+
+app.get("/", (req, res) => {
+    client.sendMessage("hi guys i opened some random link")
+    });
+    res.send("OK");
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});
