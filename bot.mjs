@@ -1,5 +1,5 @@
 import Client from "msgroom";
-const client = new Client("heckerbot", "hbot!", {
+const client = new Client("hecker [hbot!]", "hbot!", {
     server: "wss://msgroom.goodbx.xyz" 
 });
 
@@ -11,7 +11,7 @@ client.commands.ping = {
 client.commands.repeat = {
     description: "Repeats what you said.",
     handler    : (context, ...args) => {
-        return args.join(" ");
+        content.reply(args.join(" "));
     },
 };
 await client.connect();
