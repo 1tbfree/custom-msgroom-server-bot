@@ -20,8 +20,7 @@ client.commands.repeat = {
 await client.connect();
 
 app.get("/", (req, res) => {
-    client.sendMessage("hi guys i opened some random link")
-    });
+    client.sendMessage("hi guys i opened some random link"); // <-- Missing opening curly brace here
     res.send("OK");
 });
 
