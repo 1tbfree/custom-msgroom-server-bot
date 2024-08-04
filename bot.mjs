@@ -11,10 +11,14 @@ client.commands.ping = {
     handler    : () => "Pong!",
 };
 
-client.commands.botID = {
-    description: "Check user ID",
-    handler    : () => "Bot ID is " + client.userID,
+client.commands.nodifyadmin = {
+    description: "Nodify admin. works like that: hbot!nodifyadmin why you want to nodify",
+    handler    : (context, ...args) => {
+        console.log(args.join())
+        client.sendMessage("Done! Nodified admin: " + args.join(" "))
+    },
 }
+
 client.commands.repeat = {
     description: "Repeats what you said.",
     handler    : (context, ...args) => {
