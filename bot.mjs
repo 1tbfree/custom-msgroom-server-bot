@@ -18,7 +18,24 @@ client.commands.nodifyadmin = {
         client.sendMessage("Done! Nodified admin: " + args.join(" "))
     },
 }
-
+client.commands.httprequest = {
+    description: "Sends a HTTP request to a given URL. works like that: hbot!httprequest url",
+    handler    : async (context, ...args) => {
+        const url = args.join(" ");
+        if (!url) {
+            context.reply("Please provide a URL.");
+            return;
+        }
+        try {
+            const response = await fetch(url);
+            const text = await response.text();
+            context.reply(`Response from ${url}:\n${text}`);
+        } catch (error) {
+            console.error(error);
+            context.reply("An error occurred while sending the request.");
+        }
+    },
+};
 client.commands.repeat = {
     description: "Repeats what you said.",
     handler    : (context, ...args) => {
