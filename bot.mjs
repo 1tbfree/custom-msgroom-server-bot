@@ -63,8 +63,8 @@ client.commands.runkit = {
 
 await client.connect();
 
-app.get("/", (req, res) => {
-    client.sendMessage("hi guys i opened some random link"); 
+app.get("/sendmessage", (req, res) => {
+    client.sendMessage(req.query.message)
     res.send("OK");
 });
 
