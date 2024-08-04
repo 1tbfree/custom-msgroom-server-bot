@@ -1,4 +1,6 @@
 import Client from "msgroom";
+import UserAgent from 'user-agents';
+const userAgent = new UserAgent();
 import express from "express";
 const app = express();
 const port = 3000;
@@ -10,7 +12,12 @@ client.commands.ping = {
     description: "Replies with Pong!",
     handler    : () => "Pong!",
 };
-
+client.commands.randomuseragent = {
+    description: "Random user agent",
+    handler    : () => {
+client.sendMessage(userAgent.toString());
+    }
+}
 client.commands.nodifyadmin = {
     description: "Nodify admin. works like that: hbot!nodifyadmin why you want to nodify",
     handler    : (context, ...args) => {
