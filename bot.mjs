@@ -42,10 +42,29 @@ client.commands.repeat = {
         context.reply(args.join(" "));
     },
 };
-client.connect();
+client.commands.runkit = {
+  description: "Runs a command on RunKit. Example: hbot!runkit echo Hello",
+  handler: async (context, ...args) => {
+    const command = args.join(" ");
+    if (!command) {
+      context.reply("Please provide a command.");
+      return;
+    }
+    try {
+      const response = await fetch(`https://is2fu38zpee4.runkit.sh/run?command=${encodeURIComponent(command)}`);
+      const text = await response.text();
+      context.reply(`RunKit Output:\n${text}`);
+    } catch (error) {
+      console.error(error);
+      context.reply("An error occurred while running the command on RunKit.");
+    }
+  },
+};
 
-app.get("/sendwelcome", (req, res) => {
-    client.sendMessage("hi guys i opened some random link"); // <-- Missing opening curly brace here
+await client.connect();
+
+app.get("/", (req, res) => {
+    client.sendMessage("hi guys i opened some random link"); 
     res.send("OK");
 });
 
