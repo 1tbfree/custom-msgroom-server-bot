@@ -11,15 +11,19 @@ client.commands.ping = {
     handler    : () => "Pong!",
 };
 
+client.commands.botID = {
+    description: "Check user ID",
+    handler    : () => "Bot ID is " + client.userID,
+}
 client.commands.repeat = {
     description: "Repeats what you said.",
     handler    : (context, ...args) => {
         context.reply(args.join(" "));
     },
 };
-await client.connect();
+client.connect();
 
-app.get("/", (req, res) => {
+app.get("/sendwelcome", (req, res) => {
     client.sendMessage("hi guys i opened some random link"); // <-- Missing opening curly brace here
     res.send("OK");
 });
