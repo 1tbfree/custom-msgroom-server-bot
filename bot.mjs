@@ -5,7 +5,8 @@ import express from "express";
 const app = express();
 const port = 3000;
 const client = new Client("hecker [hbot!]", "hbot!", {
-    server: "wss://msgroom.goodbx.xyz" 
+    server: "wss://msgroom.goodbx.xyz",
+    blockSelf: false
 });
 
 client.commands.ping = {
