@@ -11,7 +11,7 @@ client.commands.ping = {
 client.commands.repeat = {
     description: "Repeats what you said.",
     handler    : (context, ...args) => {
-        content.reply(args.join(" "));
+        context.reply(args.join(" "));
     },
 };
 await client.connect();
