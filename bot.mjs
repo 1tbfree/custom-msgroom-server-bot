@@ -68,7 +68,10 @@ client.commands.runkit = {
     }
   },
 };
-
+client.commands.checkbotusername = {
+    description: "checks user name of bot",
+    handler    : () => client.name
+}
 await client.connect();
 
 app.get("/sendmessage", (req, res) => {
