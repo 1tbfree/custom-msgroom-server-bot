@@ -14,7 +14,7 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^5.0.0",
     "msgroom": "nightly",
     "user-agents": "^1.1.321"
   }
